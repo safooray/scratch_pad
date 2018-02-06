@@ -1,7 +1,6 @@
 import tensorflow as tf
 import numpy as np
 from tensorflow.python.framework import ops
-from tensorflow.python.ops import histogram_ops
 
 
 PROOF = 1
