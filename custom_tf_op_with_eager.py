@@ -1,17 +1,11 @@
 import tensorflow as tf
-import numpy as np
-from tensorflow.python.framework import ops
-from tensorflow.python.ops import histogram_ops
 import tensorflow.contrib.eager as tfe
 
-
 PROOF = 1
-OP_NAME='my_op'
 
 @tfe.custom_gradient
 def python_func(x_in):
     def grad_func(grad):
-        # Return custom gradient wrt each input of the op.
         return grad * ((2 * tf.exp(x_in)) - 1) + PROOF
 
     forward_func = tf.subtract(2 * tf.exp(x_in), x_in)
